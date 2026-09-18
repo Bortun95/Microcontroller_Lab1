@@ -1,8 +1,8 @@
 # Lab1: LED Animations
 
-**School:** Ho Chi Minh City University of Technology
-**Name:** Huynh Tri Duc
-**Student ID:** 2452269
+**School:** Ho Chi Minh City University of Technology  
+**Name:** Huynh Tri Duc  
+**Student ID:** 2452269  
 
 ---
 
