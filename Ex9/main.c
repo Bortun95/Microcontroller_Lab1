@@ -107,20 +107,17 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-	  for (int i = 0; i < 12; i++) {
-	      setNumberOnClock(i);
-	  }
-	  HAL_Delay(1000);
-	  for (int i = 0; i < 12; i++) {
-	      clearNumberOnClock(i);
-	      HAL_Delay(1000);
-	  }
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
+while (1)
+{
+  for (int i = 0; i < 12; i++) {
+	  setNumberOnClock(i);
   }
+  HAL_Delay(1000);
+  for (int i = 0; i < 12; i++) {
+	  clearNumberOnClock(i);
+	  HAL_Delay(1000);
+  }
+}
   /* USER CODE END 3 */
 }
 
