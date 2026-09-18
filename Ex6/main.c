@@ -91,24 +91,21 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint16_t clock_pins[12] = {
-      LED_1_Pin,  LED_2_Pin,  LED_3_Pin,  LED_4_Pin,
-      LED_5_Pin,  LED_6_Pin,  LED_7_Pin,  LED_8_Pin,
-      LED_9_Pin,  LED_10_Pin, LED_11_Pin, LED_12_Pin
-  };
-  while (1)
-  {
-	  for (int i = 0; i < 12; i++) {
-	      for (int j = 0; j < 12; j++) {
-	          HAL_GPIO_WritePin(GPIOA, clock_pins[j], GPIO_PIN_SET);
-	      }
-	      HAL_GPIO_WritePin(GPIOA, clock_pins[i], GPIO_PIN_RESET);
-	      HAL_Delay(1000);
+uint16_t clock_pins[12] = {
+	LED_1_Pin,  LED_2_Pin,  LED_3_Pin,  LED_4_Pin,
+	LED_5_Pin,  LED_6_Pin,  LED_7_Pin,  LED_8_Pin,
+	LED_9_Pin,  LED_10_Pin, LED_11_Pin, LED_12_Pin
+}; // PA4-PA15 are labeled as LED_1-LED_12 respectively
+while (1)
+{
+  for (int i = 0; i < 12; i++) {
+	  for (int j = 0; j < 12; j++) {
+		  HAL_GPIO_WritePin(GPIOA, clock_pins[j], GPIO_PIN_SET);
 	  }
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
+	  HAL_GPIO_WritePin(GPIOA, clock_pins[i], GPIO_PIN_RESET);
+	  HAL_Delay(1000);
   }
+}
   /* USER CODE END 3 */
 }
 
