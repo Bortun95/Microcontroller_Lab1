@@ -75,7 +75,8 @@ void updateClock(int hour, int minute, int second) {
 
         if (i == h || i == m || i == s) {
             HAL_GPIO_WritePin(GPIOA, clock_pins[index], GPIO_PIN_RESET);
-        } else {
+        }
+        else {
             HAL_GPIO_WritePin(GPIOA, clock_pins[index], GPIO_PIN_SET);
         }
     }
@@ -116,30 +117,27 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int hour = 15;
-  int minute = 47;
-  int second = 0;
-  clearAllClock();
-  while (1)
-  {
-	  updateClock(hour, minute, second);
-	  HAL_Delay(1000);
-	  second++;
-	  if (second >= 60) {
-		  second = 0;
-	      minute++;
-	      if (minute >= 60) {
-	    	  minute = 0;
-	          hour++;
-	          if (hour >= 24) {
-	        	  hour = 0;
-	          }
-	      }
+int hour = 15;
+int minute = 47;
+int second = 0;
+clearAllClock();
+while (1)
+{
+  updateClock(hour, minute, second);
+  HAL_Delay(1000);
+  second++;
+  if (second >= 60) {
+	  second = 0;
+	  minute++;
+	  if (minute >= 60) {
+		  minute = 0;
+		  hour++;
+		  if (hour >= 24) {
+			  hour = 0;
+		  }
 	  }
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
   }
+}
   /* USER CODE END 3 */
 }
 
