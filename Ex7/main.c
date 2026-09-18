@@ -54,13 +54,12 @@ static void MX_GPIO_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-void clearAllClock(void) {
-    uint16_t clock_pins[12] = {
+uint16_t clock_pins[12] = {
         LED_1_Pin,  LED_2_Pin,  LED_3_Pin,  LED_4_Pin,
         LED_5_Pin,  LED_6_Pin,  LED_7_Pin,  LED_8_Pin,
         LED_9_Pin,  LED_10_Pin, LED_11_Pin, LED_12_Pin
-    };
-
+};
+void clearAllClock(void) {
     for (int i = 0; i < 12; i++) {
         HAL_GPIO_WritePin(GPIOA, clock_pins[i], GPIO_PIN_SET);
     }
@@ -101,23 +100,16 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  uint16_t clock_pins[12] = {
-          LED_1_Pin,  LED_2_Pin,  LED_3_Pin,  LED_4_Pin,
-          LED_5_Pin,  LED_6_Pin,  LED_7_Pin,  LED_8_Pin,
-          LED_9_Pin,  LED_10_Pin, LED_11_Pin, LED_12_Pin
-   };
-  while (1)
-  {
-	  for (int i = 0; i < 12; i++) {
-	      HAL_GPIO_WritePin(GPIOA, clock_pins[i], GPIO_PIN_RESET);
-	  }
-	  HAL_Delay(1000);
-	  clearAllClock();
-	  HAL_Delay(1000);
-    /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
+while (1)
+{
+  for (int i = 0; i < 12; i++) {
+	  HAL_GPIO_WritePin(GPIOA, clock_pins[i], GPIO_PIN_RESET);
   }
+  HAL_Delay(1000);
+  clearAllClock();
+  HAL_Delay(1000);
+}
   /* USER CODE END 3 */
 }
 
