@@ -55,14 +55,11 @@ static void MX_GPIO_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 void display7SEG(int num) {
-    // Mảng lưu chân từ a đến g
     uint16_t seg_pins[7] = {
         SEG_A_Pin, SEG_B_Pin, SEG_C_Pin,
         SEG_D_Pin, SEG_E_Pin, SEG_F_Pin, SEG_G_Pin
-    };
+    }; // PB0-PB6 are labeled as SEG_A-SEG_G respectively
 
-    // Mảng mã Anode chung Active LOW (0 là SÁNG, 1 là TẮT)
-    // Mỗi hàng đại diện cho 7 phân đoạn {a, b, c, d, e, f, g}
     uint8_t seg_data[10][7] = {
         {0,0,0,0,0,0,1}, // 0
         {1,0,0,1,1,1,1}, // 1
@@ -76,7 +73,6 @@ void display7SEG(int num) {
         {0,0,0,0,1,0,0}  // 9
     };
 
-    // Xuất giá trị ra các chân GPIOB
     if (num >= 0 && num <= 9) {
         for (int i = 0; i < 7; i++) {
             if (seg_data[num][i] == 0) {
@@ -124,19 +120,12 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  int counter = 0;
-  while (1)
-  {
-	  int counter = 0;
-	  while (1){
-		  if(counter >= 10) counter = 0;
-		  display7SEG(counter++);
-	  	  HAL_Delay(1000);
-	  }
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
-  }
+int counter = 0;
+while (1){
+   if (counter >= 10) counter = 0;
+   display7SEG(counter++);
+   HAL_Delay(1000);
+}
   /* USER CODE END 3 */
 }
 
